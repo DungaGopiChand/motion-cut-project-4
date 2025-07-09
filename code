@@ -1,0 +1,24 @@
+# Bill Splitter with names and tip
+
+try:
+    total_bill = float(input("Enter the total bill amount: "))
+    tip_percent = float(input("Enter tip percentage (enter 0 if no tip): "))
+    num_people = int(input("Enter the number of people: "))
+
+    if num_people <= 0:
+        print("Number of people should be greater than zero.")
+    else:
+        total_with_tip = total_bill + (total_bill * tip_percent / 100)
+        amount_per_person = total_with_tip / num_people
+
+        names = []
+        for i in range(num_people):
+            name = input(f"Enter name of person {i+1}: ")
+            names.append(name)
+
+        print("\n--- Bill Split ---")
+        for name in names:
+            print(f"{name} should pay: ₹{amount_per_person:.2f}")
+
+except ValueError:
+    print("Invalid input. Please enter numeric values only.")
